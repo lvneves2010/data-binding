@@ -1,0 +1,114 @@
+<section class="property-binding">
+
+<article>
+
+  <h3>Interpolation/Interpolação</h3>
+  <p> string interpolada {{ url }}</p>
+  <p> a soma 1 + 1 é {{ 1 + 1 }}</p>
+  <p>Resultado de 1 + 1 não é {{ 1 + 1 + getValor() }}</p>
+  <p>Curso Angular e gosto do curso: {{ cursoAngular && getCurtirCurso() }} </p>
+
+</article>
+
+<article>
+
+  <h3>property binding</h3>
+  <img src="{{ urlImagem }}">
+
+</article>
+
+<article>
+
+  <h3>Class and style binding</h3>
+  <button type="button" class="btn btn-primary"
+        tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Simple demo
+  </button>
+
+  <div>
+    selecione uma classe:
+    <select #classe (change)="0">
+
+      <option value="alert-success">Sucesso</option>
+      <option value="alert-success">Sucesso</option>
+      <option value="alert-success">Sucesso</option>
+      <option value="alert-success">Sucesso</option>
+
+    </select>
+  </div>
+
+</article> 
+
+<article>
+
+  <h3>Event Binding</h3>
+  <div>
+    <button (click)="botaoClicado()" class="btn btn-primary">Me Clique!!</button>
+    
+    <br><br>
+
+    <input type="text"
+     (keyup)="onKeyUp($event)" 
+     (keyup.enter)="salvarValor(campoInput.value)"
+     (blur)="salvarValor(campoInput.value)"
+     #campoInput >
+
+    <p>valor atual: {{ valorAtual }}</p>
+    <p>valor salvo: {{ valorSalvo }}</p>
+
+    <br><br>
+
+    <span 
+    (mouseover)="onMouseOverOut()"
+    (mouseout)="onMouseOverOut()"
+    [class.highlight]="isMouseOver"
+    >passe o mouse</span>
+
+  </div>
+
+</article>
+</section>
+
+<section class="two-way-binding">
+
+  <article>
+
+    <h3>
+      two way data binding
+    </h3>
+
+    <div>
+
+      <input type="text"
+        [value]="nome"
+        (input)="nome = $event.target.value"
+      >
+
+      <input type="text"
+        [ngModel]="nome"
+        (ngModelChange)="nome = $event"
+      >
+
+      <input type="text"
+        [(ngModel)]="nome"
+      >
+
+      
+      <input type="text"
+        bindon-ngModel="nome"
+      >
+      <p> Voce digitou {{ nome }}</p>
+      
+    </div>
+
+    <div>
+
+      <p>Meu nome é {{ pessoa.nome }} e minha idade é {{ pessoa.idade }} anos de idade </p>
+      <input type="text" [(ngModel)]="pessoa.nome">
+      <input type="text" [(ngModel)]="pessoa.idade">
+
+    </div>
+
+  </article>
+
+</section>
